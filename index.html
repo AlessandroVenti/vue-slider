@@ -12,15 +12,15 @@
         <script src="js/script.js" charset="utf-8"></script>
     </head>
     <body>
-        <div class="container">
+        <div id="js-vue" class="container">
             <div class="slider-wrapper">
-                <div class="prev">
+                <div @click="prev" class="prev">
                     <i class="fas fa-angle-left"></i>
                 </div>
                 <div class="images">
-                    <img src="img/judy.jpg" alt="">
+                    <img :src="starterRoad + name + finalRoad" alt="">
                 </div>
-                <div class="next">
+                <div @click="next" class="next">
                     <i class="fas fa-angle-right"></i>
                 </div>
             </div>
