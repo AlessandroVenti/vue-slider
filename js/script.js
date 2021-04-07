@@ -4,29 +4,34 @@ function myNewVue() {
      new Vue({
           el : '#js-vue',
           data : {
-               nameArray : ['judy', 'panam', 'rogue', 'johnny'],
+               namesArray : ['judy', 'panam', 'rogue', 'johnny'],
                starterRoad: 'img/',
                name: 'judy',
                finalRoad: '.jpg',
-               nameCount: 0
+               switchCount: 0
           },
           methods: {
 
                next: function() {
-                    this.nameCount++;
-                    for (let i = 0; i < this.nameArray.length; i++) {
-                         if( i == this.nameCount ) {
-                              console.log(i, this.nameCount);
-                              this.name = this.nameArray[i];
-                         } 
+                    this.switchCount++;
+                    for (let i = 0; i < this.namesArray.length; i++) {
+                         if( i == this.switchCount ) {
+                              this.name = this.namesArray[i];
+                         } else if ( this.switchCount == this.namesArray.length) {
+                              this.switchCount = 0;
+                              this.name = this.namesArray[this.switchCount];
+                         }
                     }
                },
 
                prev: function() {
-                    this.nameCount--;
-                    for (let i = 0; i < this.nameArray.length; i++) {
-                         if( i == this.nameCount) {
-                              this.name = this.nameArray[i];
+                    this.switchCount--;
+                    for (let i = 0; i < this.namesArray.length; i++) {
+                         if( i == this.switchCount) {
+                              this.name = this.namesArray[i];
+                         } else if ( this.switchCount < 0) {
+                              this.switchCount = this.namesArray.length - 1;
+                              this.name = this.namesArray[this.switchCount];
                          }
                     }
                }
