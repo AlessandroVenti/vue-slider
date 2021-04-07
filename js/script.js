@@ -1,4 +1,5 @@
                        //Ricreare lo slider visto in jquery, con tecnologia Vue.
+                       //aggiungere un timer che permetta di ciclare le immagini in automatico (cambio ogni 3sec)
 
 function myNewVue() {
      new Vue({
@@ -9,6 +10,9 @@ function myNewVue() {
                name: 'judy',
                finalRoad: '.jpg',
                switchCount: 0
+          },
+          mounted: function() {
+               setInterval(this.next, 3000);
           },
           methods: {
 
